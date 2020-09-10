@@ -15,12 +15,14 @@ public class ArrayOpdracht1 : MonoBehaviour
         {
             Highscores[i] = Random.Range(0, 10001);          
         }
-        checkDuplitcates();   
+        Debug.Log(checkDuplitcates());
+        Debug.Log("Steps: " + steps);
+        Debug.Log("Dublicates: " + dublicates);
     }
 
 
 
-    public void checkDuplitcates()
+    public bool checkDuplitcates()
     {
             for (int i = 0; i < players; i++)
             {
@@ -28,13 +30,14 @@ public class ArrayOpdracht1 : MonoBehaviour
                 {
                     if (Highscores[i] == Highscores[j])
                     {
-                        dublicates++;                
+                    dublicates++;
+                    return true;               
                     }
                     steps++;
                 }
             }
-        Debug.Log("Dublicates: " +dublicates);
-        Debug.Log("Steps: " + steps);
+        return false;
+
     }
 
 
